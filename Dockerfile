@@ -1,6 +1,6 @@
 ARG REGION
 
-FROM 763104351884.dkr.ecr.${REGION}.amazonaws.com/tensorflow-training:2.6.0-cpu-py38-ubuntu20.04-v1.0
+FROM tensorflow/tensorflow
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     nginx \
@@ -8,10 +8,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN pip install --upgrade pip
 
-RUN pip install --no-cache-dir -U \
-    flask \
-    gevent \
-    gunicorn
+RUN pip install --no-cache-dir  -r requirements.txt
+
+
 
 RUN mkdir -p /opt/program
 RUN mkdir -p /opt/ml

@@ -1,0 +1,6 @@
+flask 
+gevent 
+numpy==1.18 
+pandas 
+scikit-learn 
+gunicorn
